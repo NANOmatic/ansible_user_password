@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  remote_user: sewertronics
+  gather_facts: no
+  roles:
+    # - user_password:
+    #   htpasswd: 42
+    - {
+        role: user_password,
+        htpasswd: /home/sewertronics/projects/docker/docker/registry_config/htpasswd,
+        user: test
+      }

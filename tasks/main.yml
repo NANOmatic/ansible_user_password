@@ -1,0 +1,7 @@
+---
+# tasks file for user_password
+  - name: Generate random password
+    shell: openssl rand -base64 8
+    register: password
+  - name: Add a user to a password file and ensure permissions are set
+    shell: htpasswd -bB {{ htpasswd }} {{ user }} {{ password.stdout }}
